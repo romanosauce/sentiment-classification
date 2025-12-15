@@ -1,0 +1,26 @@
+model_type: "lstm"
+
+embedding:
+  vocab_size: 20000
+  embedding_dim: 128
+  padding_idx: 0
+  pretrained: null
+
+recurrent:
+  hidden_dim: 256
+  num_layers: 2
+  dropout: 0.3
+  bidirectional: true
+
+classifier:
+  hidden_dims: [128, 64]
+  dropout: 0.5
+  num_classes: 2
+
+attention:
+  enabled: false
+  type: "self"
+  heads: 4
+
+output:
+  activation: "softmax"
