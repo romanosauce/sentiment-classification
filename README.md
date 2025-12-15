@@ -102,15 +102,12 @@ sentiment-classifier/
 ### Установка
 
 ```bash
-# Клонирование репозитория
 git clone https://github.com/your-username/sentiment-classifier.git
 cd sentiment-classifier
 
-# Создание виртуального окружения
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
+source venv/bin/activate
 
-# Установка зависимостей
 pip install -r requirements.txt
 ```
 
