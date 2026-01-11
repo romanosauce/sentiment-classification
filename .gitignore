@@ -81,16 +81,19 @@ dmypy.json
 .ruff_cache/
 
 # Project specific
-data/
-models/
 logs/
 *.log
-*.pt
-*.bin
-*.ckpt
+
+# Model weights (not tracked by DVC explicitly)
+# *.pt
+# *.bin
+# *.ckpt
 
 # TensorBoard
 runs/
+
+# MLflow
+mlruns/
 
 # Secrets
 *.env
@@ -99,3 +102,8 @@ runs/
 # OS
 .DS_Store
 Thumbs.db
+/data
+/processed
+/models
+mlflow.db
+/serve/model*
