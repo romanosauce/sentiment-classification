@@ -174,11 +174,11 @@ python -m src.train --config configs/train_config.yaml \
 
 ```bash
 # Запуск MLflow сервера с PostgreSQL и S3
-mlflow server \
-    --backend-store-uri postgresql://user:pass@localhost/mlflow \
-    --default-artifact-root s3://mlflow-artifacts \
-    --host 0.0.0.0 \
-    --port 5000
+MLFLOW_SERVER_ALLOWED_HOSTS="*" mlflow server \
+      --host 0.0.0.0 \
+      --port 5000 \
+      --backend-store-uri sqlite:///mlflow.db \
+      --default-artifact-root ./mlruns
 ```
 
 ### Структура mlruns/

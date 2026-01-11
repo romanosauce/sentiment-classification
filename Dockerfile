@@ -15,16 +15,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy and install Python dependencies
-COPY requirements.txt .
-
-# Install only inference dependencies (lighter image)
+# Install CPU-only PyTorch (much smaller than CUDA version)
 RUN pip install --no-cache-dir \
-    torch==2.9.1 \
+    torch && \
+    pip install --no-cache-dir \
     numpy==1.26.2 \
     pandas==2.1.3 \
     tqdm==4.66.1
