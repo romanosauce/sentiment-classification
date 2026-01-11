@@ -1,0 +1,43 @@
+stages:
+  prepare:
+    cmd: ~/.venv3.12/bin/python src/prepare.py --config configs/train_config.yaml --output-dir processed
+    deps:
+      - src/prepare.py
+      - src/data_loader.py
+      - src/preprocessing.py
+      - configs/train_config.yaml
+    outs:
+      - processed
+
+  train:
+    cmd: ~/.venv3.12/bin/python src/train.py --config configs/train_config.yaml --epochs 3
+    deps:
+      - src/train.py
+      - src/model.py
+      - src/dataset.py
+      - src/data_loader.py
+      - src/preprocessing.py
+      - src/utils.py
+      - configs/train_config.yaml
+    outs:
+      - models/sentiment_model
+
+  evaluate:
+    cmd: ~/.venv3.12/bin/python src/evaluate.py --model-path models/sentiment_model --config configs/train_config.yaml --prepared-data-dir processed --output metrics.json
+    deps:
+      - src/evaluate.py
+      - src/model.py
+      - src/dataset.py
+      - src/preprocessing.py
+      - configs/train_config.yaml
+      - models/sentiment_model
+      - processed
+    metrics:
+      - metrics.json:
+          cache: false
+
+plots:
+  - metrics.json:
+      x: step
+      y:
+        metrics.json: [accuracy, f1_score, roc_auc]

@@ -1,0 +1,28 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: ~/.venv3.12/bin/python src/prepare.py --config 
+      configs/train_config.yaml --output-dir processed
+    deps:
+    - path: configs/train_config.yaml
+      hash: md5
+      md5: 56c87b695a8505652a639dadca33144e
+      size: 613
+    - path: src/data_loader.py
+      hash: md5
+      md5: 69e15d797fe02cacef330c022745454b
+      size: 8275
+    - path: src/prepare.py
+      hash: md5
+      md5: db58fbcaa6a10aa8688f1215723002e4
+      size: 4230
+    - path: src/preprocessing.py
+      hash: md5
+      md5: 0e64ea401c6aaba8d4269d88462393e1
+      size: 8971
+    outs:
+    - path: processed
+      hash: md5
+      md5: b517f14c09d173411b94094233ae1ef9.dir
+      size: 66318495
+      nfiles: 5

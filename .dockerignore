@@ -1,0 +1,92 @@
+# Git
+.git
+.gitignore
+
+# DVC
+.dvc
+*.dvc
+dvc.lock
+dvc.yaml
+
+# Data files (large)
+data/
+processed/
+*.csv
+*.pkl
+*.pt
+*.bin
+!models/sentiment_model/*.bin
+!models/sentiment_model/*.json
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Linting
+.mypy_cache/
+.ruff_cache/
+
+# Logs and artifacts
+logs/
+*.log
+mlruns/
+runs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Documentation
+*.md
+docs/
+
+# Tests (not needed for inference)
+tests/
+
+# Configs (model has its own config)
+configs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+tmp/
+temp/
+*.tmp
+
+# Input/output directories
+input/
+output/
