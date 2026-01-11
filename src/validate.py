@@ -2,7 +2,7 @@
 Validation script for sentiment classifier.
 
 Usage:
-    python src/validate.py --model-path models/sentiment_model --config configs/train_config.yaml
+    python -m src.validate --model-path models/sentiment_model --config configs/train_config.yaml
 """
 
 import argparse

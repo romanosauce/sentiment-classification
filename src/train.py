@@ -2,8 +2,8 @@
 Training script for sentiment classifier.
 
 Usage:
-    python src/train.py --config configs/train_config.yaml
-    python src/train.py --config configs/train_config.yaml --epochs 5 --lr 0.001
+    python -m src.train --config configs/train_config.yaml
+    python -m src.train --config configs/train_config.yaml --epochs 5 --lr 0.001
 """
 
 import argparse

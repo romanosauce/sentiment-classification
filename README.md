@@ -151,15 +151,15 @@ mlflow ui --port 5000
 
 ```bash
 # Стандартный запуск (логи в mlruns/)
-python src/train.py --config configs/train_config.yaml
+python -m src.train --config configs/train_config.yaml
 
 # С указанием имени эксперимента
-python src/train.py --config configs/train_config.yaml \
+python -m src.train --config configs/train_config.yaml \
     --experiment-name "my-experiment" \
     --run-name "baseline-v1"
 
 # С удалённым сервером MLflow
-python src/train.py --config configs/train_config.yaml \
+python -m src.train --config configs/train_config.yaml \
     --mlflow-tracking-uri http://mlflow-server:5000
 ```
 
@@ -270,23 +270,23 @@ pip install -r requirements.txt
 ### Загрузка данных
 
 ```bash
-python src/download_data.py
+python -m src.download_data
 ```
 
 ### Обучение модели
 
 ```bash
-python src/train.py --config configs/train_config.yaml
+python -m src.train --config configs/train_config.yaml
 
-python src/train.py --config configs/train_config.yaml --verbose
+python -m src.train --config configs/train_config.yaml --verbose
 
-python src/train.py --config configs/train_config.yaml --epochs 5 --lr 0.0005
+python -m src.train --config configs/train_config.yaml --epochs 5 --lr 0.0005
 ```
 
 ### Валидация модели
 
 ```bash
-python src/validate.py --model-path models/sentiment_model --config configs/train_config.yaml
+python -m src.validate --model-path models/sentiment_model --config configs/train_config.yaml
 ```
 
 ### Использование в коде

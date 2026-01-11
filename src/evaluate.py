@@ -2,7 +2,7 @@
 Evaluation script for sentiment classifier (for DVC pipeline).
 
 Usage:
-    python src/evaluate.py --model-path models/sentiment_model --config configs/train_config.yaml
+    python -m src.evaluate --model-path models/sentiment_model --config configs/train_config.yaml
 """
 
 import argparse

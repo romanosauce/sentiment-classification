@@ -1,6 +1,6 @@
 stages:
   prepare:
-    cmd: ~/.venv3.12/bin/python src/prepare.py --config configs/train_config.yaml --output-dir processed
+    cmd: python -m src.prepare --config configs/train_config.yaml --output-dir processed
     deps:
       - src/prepare.py
       - src/data_loader.py
@@ -10,7 +10,7 @@ stages:
       - processed
 
   train:
-    cmd: ~/.venv3.12/bin/python src/train.py --config configs/train_config.yaml --epochs 3
+    cmd: python -m src.train --config configs/train_config.yaml --epochs 3
     deps:
       - src/train.py
       - src/model.py
@@ -23,7 +23,7 @@ stages:
       - models/sentiment_model
 
   evaluate:
-    cmd: ~/.venv3.12/bin/python src/evaluate.py --model-path models/sentiment_model --config configs/train_config.yaml --prepared-data-dir processed --output metrics.json
+    cmd: python -m src.evaluate --model-path models/sentiment_model --config configs/train_config.yaml --prepared-data-dir processed --output metrics.json
     deps:
       - src/evaluate.py
       - src/model.py

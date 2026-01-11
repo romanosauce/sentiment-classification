@@ -5,7 +5,7 @@ Converts raw IMDB data from individual files to a processed format
 suitable for training.
 
 Usage:
-    python src/prepare.py --config configs/train_config.yaml
+    python -m src.prepare --config configs/train_config.yaml
 """
 
 import argparse
