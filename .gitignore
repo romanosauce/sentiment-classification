@@ -84,16 +84,28 @@ dmypy.json
 logs/
 *.log
 
-# Model weights (not tracked by DVC explicitly)
-# *.pt
-# *.bin
-# *.ckpt
+# Model weights and artifacts (tracked by DVC, not git)
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.mar
 
 # TensorBoard
 runs/
 
 # MLflow
 mlruns/
+mlflow.db
+
+# DVC tracked directories (data versioned separately)
+/data/
+/processed/
+/models/
+
+# TorchServe artifacts
+/serve/model-store/
+/serve/model.pt
 
 # Secrets
 *.env
@@ -102,8 +114,3 @@ mlruns/
 # OS
 .DS_Store
 Thumbs.db
-/data
-/processed
-/models
-mlflow.db
-/serve/model*
